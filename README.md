@@ -2,10 +2,6 @@
 
 Base URL: `http://localhost:5000/api/menu`
 
-## Authentication
-
-This API does **not require authentication**. All endpoints are publicly accessible.
-
 ### Request Body
 
 ```
