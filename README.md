@@ -2,9 +2,13 @@
 
 Base URL: `http://localhost:5000/api/menu`
 
-### Request Body
+# 1. Add an Item Menu
 
-```
+**POST** `/`
+
+## Request Body
+
+``` json
 {
   "name": "Nasi Goreng",
   "category": "Main Course",
@@ -15,14 +19,34 @@ Base URL: `http://localhost:5000/api/menu`
 }
 ```
 
-### Success Response
+## Success Response (201)
 
-```
+``` json
 {
   "message": "Menu created successfully",
-  "data": { ...menu object... }
+  "data": {
+    "id": 123456,
+    "name": "Nasi Goreng",
+    "category": "Main Course",
+    "calories": 450,
+    "price": 20000,
+    "ingredients": ["rice", "egg", "soy sauce"],
+    "description": "Indonesian fried rice.",
+    "created_at": "2025-02-01T12:00:00.000Z",
+    "updated_at": "2025-02-01T12:00:00.000Z"
+  }
 }
 ```
+
+## Error Response (400)
+
+``` json
+{
+  "message": "Failed to create menu",
+  "error": "Validation error message"
+}
+```
+
 
 ---
 
