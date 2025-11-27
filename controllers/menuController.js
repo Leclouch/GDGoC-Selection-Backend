@@ -1,4 +1,5 @@
 import Menu from '../models/menu.model.js'
+import { generateMenuAI } from "../services/gemini.service.js";
 
 // CREATE - POST /menu
 const createMenu = async (req, res) => {
@@ -198,4 +199,24 @@ const deleteMenu = async (req, res) => {
   }
 };
 
-export { createMenu, getAllMenus, searchMenus, groupByCategory, getMenuById, updateMenu, deleteMenu };
+const generateMenuAIController = async (req, res) => {
+  try {
+    const { category } = req.body;
+
+    if (!category) {
+      return res.status(400).json({ error: "Category required" });
+    }
+
+    const aiMenu = await generateMenuAI(category);
+
+    return res.json({ data: aiMenu });
+  } catch (err) {
+    console.error("AI ERROR:", err);
+    return res.status(500).json({ 
+      error: "AI generation failed",
+      details: err.message 
+    });
+  }
+};
+
+export { createMenu, getAllMenus, searchMenus, groupByCategory, getMenuById, updateMenu, deleteMenu, generateMenuAIController };

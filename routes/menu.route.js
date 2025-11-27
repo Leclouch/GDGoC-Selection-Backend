@@ -1,7 +1,7 @@
 // routes/menuRoutes.js
 import express from 'express';
 const router = express.Router();
-import {createMenu, getAllMenus, getMenuById, updateMenu, deleteMenu, groupByCategory, searchMenus} from '../controllers/menuController.js';
+import {createMenu, getAllMenus, getMenuById, updateMenu, deleteMenu, groupByCategory, searchMenus, generateMenuAIController} from '../controllers/menuController.js';
 
 // POST /menu - Create a new menu
 router.post('/', createMenu);
@@ -21,6 +21,9 @@ router.put('/:id', updateMenu);
 
 // DELETE /menu/:id - Delete a menu
 router.delete('/:id', deleteMenu);
+
+// POST /menu/generate-ai - Generate menu using AI
+router.post("/generate-ai", generateMenuAIController);
 
 
 
