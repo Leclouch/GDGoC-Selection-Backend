@@ -56,7 +56,7 @@ Base URL: `http://localhost:5000/api/menu`
 
 ### Response
 
-```
+``` json
 {
   "data": [ ...menus ]
 }
@@ -76,7 +76,7 @@ Base URL: `http://localhost:5000/api/menu`
 
 ### Response
 
-```
+``` json
 {
   "data": [...results],
   "pagination": {
@@ -95,7 +95,7 @@ Base URL: `http://localhost:5000/api/menu`
 
 ### Mode: count
 
-```
+``` json
 {
   "data": {
     "Drinks": 5,
@@ -107,7 +107,7 @@ Base URL: `http://localhost:5000/api/menu`
 
 ### Mode: list
 
-```
+``` json
 {
   "data": {
     "Drinks": [ ...up to per_category items... ],
@@ -125,7 +125,7 @@ Base URL: `http://localhost:5000/api/menu`
 
 ### Response
 
-```
+``` json
 {
   "data": { ...menu object... }
 }
@@ -133,7 +133,7 @@ Base URL: `http://localhost:5000/api/menu`
 
 ### 404 Response
 
-```
+``` json
 {
   "message": "Menu not found"
 }
@@ -151,7 +151,7 @@ Base URL: `http://localhost:5000/api/menu`
 
 ### Success Response
 
-```
+``` json
 {
   "message": "Menu updated successfully",
   "data": { ...updated menu... }
@@ -166,7 +166,7 @@ Base URL: `http://localhost:5000/api/menu`
 
 ### Success Response
 
-```
+``` json
 {
   "message": "Menu deleted successfully"
 }
@@ -174,16 +174,10 @@ Base URL: `http://localhost:5000/api/menu`
 
 ### 404 Response
 
-```
+``` json
 {
   "message": "Menu not found"
 }
 ```
 
 ---
-
-# Authentication Header Example
-
-```
-curl -H "Authorization: Bearer <YOUR_GEMINI_API_KEY>" http://localhost:5000/api/menu
-```
